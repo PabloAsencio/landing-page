@@ -19,7 +19,7 @@
  */
 const sections = document.getElementsByTagName('section');
 const navbarList = document.getElementById('navbar__list');
-const navbarLinks = navbarList.getElementsByTagName('li');
+const menuLinks = navbarList.getElementsByClassName('menu__link');
 
 /**
  * End Global Variables
@@ -32,7 +32,7 @@ const createAnchor = (section) => {
     const anchor = document.createElement('A');
     anchor.setAttribute('href', `#${id}`);
     anchor.textContent = content;
-    anchor.setAttribute('id', `${section.getAttribute('id')}-link`);
+    anchor.classList.add('menu__link');
     return anchor;
 };
 
@@ -48,6 +48,8 @@ const isActive = (element) => {
     );
 };
 
+// Compares and Element to another Element and returns true if the
+// first one is closer to the top of the viewport than the second one
 const isCloserToTop = (oneElement, anotherElement) => {
     return (
         !anotherElement ||
@@ -57,17 +59,28 @@ const isCloserToTop = (oneElement, anotherElement) => {
 };
 
 const setActiveLink = (section) => {
-    for (const link of navbarLinks) {
+    for (const link of menuLinks) {
         if (
             section &&
-            `${section.getAttribute('id')}-link` ===
-                link.firstElementChild.getAttribute('id')
+            section.getAttribute('id') ===
+                link.getAttribute('href').substring(1)
         ) {
-            link.firstElementChild.classList.add('link--active');
+            link.classList.add('link--active');
         } else {
-            link.firstElementChild.classList.remove('link--active');
+            link.classList.remove('link--active');
         }
     }
+};
+
+const scrollToSection = (event, section) => {
+    event.preventDefault();
+    const rect = section.getBoundingClientRect();
+    const scrollOptions = {
+        left: rect.x,
+        top: rect.y,
+        behavior: 'smooth',
+    };
+    window.scrollBy(scrollOptions);
 };
 
 /**
@@ -77,16 +90,16 @@ const setActiveLink = (section) => {
  */
 
 // build the nav
-const populateNavbarList = () => {
-    const newList = document.createDocumentFragment();
+const populateMenuList = () => {
+    const menuList = document.createDocumentFragment();
     for (const section of sections) {
         const li = document.createElement('LI');
         const anchor = createAnchor(section);
         li.appendChild(anchor);
-        newList.appendChild(li);
+        menuList.appendChild(li);
     }
     navbarList.innerHTML = '';
-    navbarList.appendChild(newList);
+    navbarList.appendChild(menuList);
 };
 
 // Add class 'active' to section when near top of viewport
@@ -105,18 +118,13 @@ const setActiveSection = () => {
 };
 
 // Scroll to anchor ID using scrollTO event
-const scrollToSection = (event, link) => {
-    event.preventDefault();
-    const target = link.getAttribute('href').substring(1);
-    const section = document.getElementById(target);
-    const rect = section.getBoundingClientRect();
-    const scrollOptions = {
-        left: rect.x,
-        top: rect.y,
-        behavior: 'smooth',
-    };
-    window.scrollBy(scrollOptions);
-};
+function addLinkListeners() {
+    for (let i = 0; i < menuLinks.length; i++) {
+        menuLinks[i].addEventListener('click', (event) =>
+            scrollToSection(event, sections[i])
+        );
+    }
+}
 
 /**
  * End Main Functions
@@ -125,13 +133,10 @@ const scrollToSection = (event, link) => {
  */
 
 // Build menu
-populateNavbarList();
+populateMenuList();
+
 // Scroll to section on link click
-for (const link of navbarLinks) {
-    link.addEventListener('click', (event) =>
-        scrollToSection(event, link.firstElementChild)
-    );
-}
+addLinkListeners();
 
 // Set sections as active
 window.addEventListener('scroll', setActiveSection);
