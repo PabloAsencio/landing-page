@@ -90,7 +90,7 @@ const scrollToSection = (event, section) => {
  */
 
 // build the nav
-const populateMenuList = () => {
+const populateMenuList = (navbarList, sections) => {
     const menuList = document.createDocumentFragment();
     for (const section of sections) {
         const li = document.createElement('LI');
@@ -103,7 +103,8 @@ const populateMenuList = () => {
 };
 
 // Add class 'active' to section when near top of viewport
-const setActiveSection = () => {
+const setActiveSection = (sections) => {
+    console.log('We are inside setActiveSection');
     let activeSection = null;
     for (const section of sections) {
         section.classList.remove('your-active-class');
@@ -118,7 +119,7 @@ const setActiveSection = () => {
 };
 
 // Scroll to anchor ID using scrollTO event
-function addLinkListeners() {
+function addLinkListeners(menuLinks, sections) {
     for (let i = 0; i < menuLinks.length; i++) {
         menuLinks[i].addEventListener('click', (event) =>
             scrollToSection(event, sections[i])
@@ -133,10 +134,12 @@ function addLinkListeners() {
  */
 
 // Build menu
-populateMenuList();
+populateMenuList(navbarList, sections);
 
 // Scroll to section on link click
-addLinkListeners();
+addLinkListeners(menuLinks, sections);
 
 // Set sections as active
-window.addEventListener('scroll', setActiveSection);
+window.addEventListener('scroll', () => {
+    setActiveSection(sections);
+});
