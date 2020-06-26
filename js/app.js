@@ -104,7 +104,6 @@ const populateMenuList = (navbarList, sections) => {
 
 // Add class 'active' to section when near top of viewport
 const setActiveSection = (sections) => {
-    console.log('We are inside setActiveSection');
     let activeSection = null;
     for (const section of sections) {
         section.classList.remove('your-active-class');
