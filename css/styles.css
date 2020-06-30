@@ -17,27 +17,36 @@ body {
         rgba(0, 13, 60, 1) 100%
     );
     margin: 0;
-    font-family: 'Merriweather', serif;
+    font-family: 'Open Sans', sans-serif;
     color: #fff;
 }
 
-/* Typeography General*/
+/* Typography General*/
 h1 {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Bangers', cursive;
+    font-weight: 400;
     font-size: 3em;
     margin: 2em 1rem;
+}
+
+.main__subtitle {
 }
 
 @media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
-        margin: 2em 4rem 1em;
+        margin: 0 4rem 1rem;
+    }
+
+    .main__subtitle {
+        font-size: 1.5em;
+        margin: 0 4rem;
     }
 }
 
 h2 {
     border-bottom: 1px solid #cc1;
-    font-family: 'Oxygen', Sans-Serif;
+    font-family: 'Roboto Slab', serif;
     font-size: 3em;
     color: #fff;
 }
@@ -49,12 +58,22 @@ p {
 
 /* ---- Layout Rules ---- */
 main {
-    margin: 10vh 1em 10vh;
+    margin-bottom: 10vh;
 }
 
-.main-hero {
-    min-height: 40vh;
-    padding-top: 3em;
+.main__hero {
+    display: flex;
+    flex-flow: row-reverse wrap-reverse;
+    align-items: center;
+    min-height: 80vh;
+    background-image: url('../images/aaron-burden-1zR3WNSTnvY-unsplash-xl_2x.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.main__header {
+    margin-right: 4em;
+    padding: 5em;
 }
 
 section {
