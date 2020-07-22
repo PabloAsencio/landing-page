@@ -10,11 +10,10 @@
 
 /* Colors */
 :root {
-    --midnight-green-eagle-green: hsla(188, 56%, 23%, 1);
-    --medium-turquoise: hsla(176, 56%, 55%, 1);
+    --on-color: #000;
     --color-background: hsla(120, 100%, 98%, 1);
-    --bittersweet: hsla(0, 100%, 71%, 1);
-    --naples-yellow: hsla(50, 100%, 71%, 1);
+    --color-secondary: hsla(0, 100%, 71%, 1);
+    --color-primary: hsla(50, 100%, 71%, 1);
 }
 
 /* ---- Base Rules ---- */
@@ -22,7 +21,7 @@ body {
     background: var(--color-background);
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    color: var(--midnight-green-eagle-green);
+    color: var(--on-color);
 }
 
 /* Typography General*/
@@ -31,11 +30,11 @@ h1 {
     font-weight: 400;
     font-size: 3em;
     margin: 2em 1rem;
-    color: var(--naples-yellow);
+    color: var(--color-primary);
 }
 
 .main__subtitle {
-    color: var(--naples-yellow);
+    color: var(--color-primary);
 }
 
 @media only screen and (min-width: 35em) {
@@ -51,16 +50,15 @@ h1 {
 }
 
 h2 {
-    /* border-bottom: 1px solid var(--medium-turquoise); */
     font-family: 'Bangers', serif;
     font-weight: 400;
     font-size: 3em;
-    color: var(--midnight-green-eagle-green);
+    color: var(--on-color);
 }
 
 p {
     line-height: 1.6em;
-    color: var(--midnight-green-eagle-green);
+    color: var(--on-color);
 }
 
 /* ---- Layout Rules ---- */
@@ -110,8 +108,8 @@ section {
 }
 
 .navbar__menu .menu__link:hover {
-    background: var(--naples-yellow);
-    color: var(--midnight-green-eagle-green);
+    background: var(--color-primary);
+    color: var(--on-color);
     transition: ease 0.3s all;
 }
 
@@ -126,7 +124,7 @@ section {
 
 /* Footer Styles */
 .page__footer {
-    background: var(--midnight-green-eagle-green);
+    background: var(--on-color);
     padding: 3em;
     color: var(--color-background);
 }
@@ -142,7 +140,7 @@ section {
 }
 
 .page__footer a:hover {
-    color: var(--naples-yellow);
+    color: var(--color-primary);
 }
 
 /* ---- Theme Rules ---- */
@@ -165,128 +163,22 @@ section:nth-of-type(even) .landing__container {
     text-align: right;
 }
 
-/* Background Circles */
-/* Note that background circles are created with psuedo elements before and after */
-/* Circles appear to be random do to use of :nth-of-type psuedo class */
-section:nth-of-type(odd) .landing__container::before {
-    content: '';
-    background: rgba(255, 255, 255, 0.187);
-    position: absolute;
-    z-index: -5;
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(even) .landing__container::before {
-    content: '';
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n) .landing__container::after {
-    content: '';
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n + 1) .landing__container::after {
-    content: '';
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
-    position: absolute;
-    right: 20vw;
-    bottom: -5em;
-    z-index: -5;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-/* section.your-active-class {
-    background: hsla(50, 100%, 71%, 0.5);
-    background: linear-gradient(
-        0deg,
-        hsla(50, 100%, 71%, 0.5) 0%,
-        hsla(50, 100%, 71%, 0.1) 100%
-    );
-} */
-
-section.your-active-class .landing__container::before {
-    opacity: 1;
-    animation: rotate 4s linear 0s infinite forwards;
-}
-
-section.your-active-class .landing__container::after {
-    opacity: 1;
-    animation: rotate 5s linear 0s infinite forwards reverse;
-}
-
-/* section.your-active-class {
-    background-color: var(--naples-yellow);
-} */
-
 section.your-active-class h2 {
-    color: var(--bittersweet);
-    border-bottom: 1px solid var(--bittersweet);
+    color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
     transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 section.your-active-class p {
-    color: var(--midnight-green-eagle-green);
+    color: var(--on-color);
 }
 
 .link--active {
-    background-color: var(--naples-yellow);
+    background-color: var(--color-primary);
 }
 
 .menu__link.link--active:hover {
-    background-color: var(--bittersweet);
-}
-
-/* Section Active Styles Keyframe Animations */
-@keyframes rotate {
-    from {
-        transform: rotate(0deg) translate(-1em) rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg) translate(-1em) rotate(-360deg);
-    }
+    background-color: var(--color-secondary);
 }
