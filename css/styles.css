@@ -52,7 +52,8 @@ h1 {
 
 h2 {
     /* border-bottom: 1px solid var(--medium-turquoise); */
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Bangers', serif;
+    font-weight: 400;
     font-size: 3em;
     color: var(--midnight-green-eagle-green);
 }
