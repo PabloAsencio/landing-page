@@ -126,12 +126,13 @@ section {
 
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background: var(--midnight-green-eagle-green);
     padding: 3em;
     color: var(--color-background);
 }
 
 .page__footer p {
+    text-align: center;
     color: var(--color-background);
 }
 
