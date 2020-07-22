@@ -9,23 +9,20 @@
 */
 
 /* Colors */
---midnight-green-eagle-green: hsla(188, 56%, 23%, 1);
---medium-turquoise: hsla(176, 56%, 55%, 1);
---color-background: hsla(120, 100%, 98%, 1);
---bittersweet: hsla(0, 100%, 71%, 1);
---naples-yellow: hsla(50, 100%, 71%, 1);
+:root {
+    --midnight-green-eagle-green: hsla(188, 56%, 23%, 1);
+    --medium-turquoise: hsla(176, 56%, 55%, 1);
+    --color-background: hsla(120, 100%, 98%, 1);
+    --bittersweet: hsla(0, 100%, 71%, 1);
+    --naples-yellow: hsla(50, 100%, 71%, 1);
+}
 
 /* ---- Base Rules ---- */
 body {
     background: var(--color-background);
-    background: linear-gradient(
-        0deg,
-        rgba(136, 203, 171, 1) 0%,
-        rgba(0, 13, 60, 1) 100%
-    );
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    color: #000;
+    color: var(--midnight-green-eagle-green);
 }
 
 /* Typography General*/
@@ -34,9 +31,11 @@ h1 {
     font-weight: 400;
     font-size: 3em;
     margin: 2em 1rem;
+    color: var(--naples-yellow);
 }
 
 .main__subtitle {
+    color: var(--naples-yellow);
 }
 
 @media only screen and (min-width: 35em) {
@@ -52,15 +51,15 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid var(--naples-yellow);
+    /* border-bottom: 1px solid var(--medium-turquoise); */
     font-family: 'Roboto Slab', serif;
     font-size: 3em;
-    color: #000;
+    color: var(--midnight-green-eagle-green);
 }
 
 p {
     line-height: 1.6em;
-    color: #000;
+    color: var(--midnight-green-eagle-green);
 }
 
 /* ---- Layout Rules ---- */
@@ -110,8 +109,8 @@ section {
 }
 
 .navbar__menu .menu__link:hover {
-    background: var(--color-background);
-    color: #000;
+    background: var(--naples-yellow);
+    color: var(--midnight-green-eagle-green);
     transition: ease 0.3s all;
 }
 
@@ -133,6 +132,15 @@ section {
 
 .page__footer p {
     color: var(--color-background);
+}
+
+.page__footer a {
+    color: inherit;
+    text-decoration: underline dotted;
+}
+
+.page__footer a:hover {
+    color: var(--naples-yellow);
 }
 
 /* ---- Theme Rules ---- */
@@ -230,14 +238,14 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
+/* section.your-active-class {
+    background: hsla(50, 100%, 71%, 0.5);
     background: linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0) 100%
+        hsla(50, 100%, 71%, 0.5) 0%,
+        hsla(50, 100%, 71%, 0.1) 100%
     );
-}
+} */
 
 section.your-active-class .landing__container::before {
     opacity: 1;
@@ -249,12 +257,26 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-section.your-active-class {
-    background-color: red;
+/* section.your-active-class {
+    background-color: var(--naples-yellow);
+} */
+
+section.your-active-class h2 {
+    color: var(--bittersweet);
+    border-bottom: 1px solid var(--bittersweet);
+    transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+section.your-active-class p {
+    color: var(--midnight-green-eagle-green);
 }
 
 .link--active {
-    background-color: red;
+    background-color: var(--naples-yellow);
+}
+
+.menu__link.link--active:hover {
+    background-color: var(--bittersweet);
 }
 
 /* Section Active Styles Keyframe Animations */
