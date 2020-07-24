@@ -28,25 +28,90 @@ body {
 /* Typography General*/
 h1 {
     font-family: 'Bangers', cursive;
+    font-size: 3.5em;
     font-weight: 400;
-    font-size: 3em;
-    margin: 2em 1rem;
     color: var(--color-primary);
+    margin: 0 1rem 0 10rem;
 }
 
 .main__subtitle {
     color: var(--color-primary);
+    margin: 0 1rem 0 10rem;
 }
 
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 375px) {
+    h1 {
+        font-size: 4em;
+        margin: 0 1rem 0 11rem;
+    }
+
+    .main__subtitle {
+        margin: 0 1rem 0 11rem;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    h1 {
+        font-size: 4em;
+        margin: 0 1rem 0 13rem;
+    }
+
+    .main__subtitle {
+        margin: 0 1rem 0 13rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 4em;
+        margin: 0 1.5rem 0 22rem;
+    }
+
+    .main__subtitle {
+        margin: 0 1.5rem 0 22rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    h1 {
+        font-size: 6em;
+        margin: 0 3rem 0 16rem;
+    }
+
+    .main__subtitle {
+        margin: 0 3rem 0 16rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
     h1 {
         font-size: 7em;
-        margin: 0 4rem 1rem;
+        margin: 0 0 1rem 0;
     }
 
     .main__subtitle {
         font-size: 1.5em;
-        margin: 0 4rem;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    h1 {
+        font-size: 9em;
+    }
+
+    .main__subtitle {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    h1 {
+        font-size: 12em;
+    }
+
+    .main__subtitle {
+        font-size: 3em;
     }
 }
 
@@ -77,14 +142,41 @@ main {
     background-position: center;
 }
 
-.main__header {
-    margin-right: 4em;
-    padding: 5em;
+.main_header {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+@media only screen and (min-width: 1440px) {
+    .main__header {
+        margin-right: 3em;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .main__header {
+        margin-right: 2em;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .main__header {
+        margin-right: 2em;
+    }
 }
 
 section {
     position: relative;
     min-height: 80vh;
+}
+
+@media only screen and (min-width: 1800px) {
+    section {
+        max-width: 120em;
+        margin: 0 auto;
+        min-height: 50vh;
+    }
 }
 
 /* ---- Module Rules ---- */
