@@ -11,6 +11,7 @@
 /* Colors */
 :root {
     --on-color: #000;
+    --on-color-inactive: #ccc;
     --color-background: hsla(120, 100%, 98%, 1);
     --color-secondary: hsla(0, 100%, 71%, 1);
     --color-primary: hsla(50, 100%, 71%, 1);
@@ -53,12 +54,12 @@ h2 {
     font-family: 'Bangers', serif;
     font-weight: 400;
     font-size: 3em;
-    color: var(--on-color);
+    color: var(--on-color-inactive);
 }
 
 p {
     line-height: 1.6em;
-    color: var(--on-color);
+    color: var(--on-color-inactive);
 }
 
 /* ---- Layout Rules ---- */
