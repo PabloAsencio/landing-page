@@ -105,14 +105,19 @@ const populateMenuList = (navbarList, sections) => {
 // Add class 'active' to section when near top of viewport
 const setActiveSection = (sections) => {
     let activeSection = null;
+    let sectionHeading = null;
     for (const section of sections) {
         section.classList.remove('your-active-class');
+        sectionHeading = section.querySelector('.section__heading');
+        sectionHeading.classList.remove('underline');
         if (isActive(section) && isCloserToTop(section, activeSection)) {
             activeSection = section;
         }
     }
     if (activeSection) {
         activeSection.classList.add('your-active-class');
+        const heading = activeSection.querySelector('.section__heading');
+        heading.classList.add('underline');
     }
     setActiveLink(activeSection);
 };
