@@ -58,6 +58,19 @@ const isCloserToTop = (oneElement, anotherElement) => {
     );
 };
 
+const isCloserToCenter = (oneElement, anotherElement) => {
+    return (
+        !anotherElement ||
+        getDistanceToViewportCenter(oneElement) <
+            getDistanceToViewportCenter(anotherElement)
+    );
+};
+
+const getDistanceToViewportCenter = (element) => {
+    const rect = element.getBoundingClientRect();
+    return Math.abs(window.innerHeight / 2 - (rect.top + rect.bottom) / 2);
+};
+
 const setActiveLink = (section) => {
     for (const link of menuLinks) {
         if (
@@ -110,7 +123,7 @@ const setActiveSection = (sections) => {
         section.classList.remove('your-active-class');
         sectionHeading = section.querySelector('.section__heading');
         sectionHeading.classList.remove('underline');
-        if (isActive(section) && isCloserToTop(section, activeSection)) {
+        if (isActive(section) && isCloserToCenter(section, activeSection)) {
             activeSection = section;
         }
     }
