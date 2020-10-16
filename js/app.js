@@ -49,15 +49,7 @@ const isActive = (element) => {
 };
 
 // Compares and Element to another Element and returns true if the
-// first one is closer to the top of the viewport than the second one
-const isCloserToTop = (oneElement, anotherElement) => {
-    return (
-        !anotherElement ||
-        oneElement.getBoundingClientRect().bottom <
-            anotherElement.getBoundingClientRect().bottom
-    );
-};
-
+// first one is closer to the center of the viewport than the second one
 const isCloserToCenter = (oneElement, anotherElement) => {
     return (
         !anotherElement ||
@@ -115,7 +107,7 @@ const populateMenuList = (navbarList, sections) => {
     navbarList.appendChild(menuList);
 };
 
-// Add class 'active' to section when near top of viewport
+// Add class 'active' to section when near the center of the viewport
 const setActiveSection = (sections) => {
     let activeSection = null;
     let sectionHeading = null;
