@@ -286,13 +286,14 @@ section.your-active-class p {
     color: var(--on-color);
 }
 
-.menu__link.link--active {
+.menu__link.link--active,
+.menu__link.link--active:focus {
     background-color: var(--color-secondary);
     color: var(--color-background);
 }
 
-.menu__link.menu__link.link--active:focus,
-.menu__link.link--active:hover {
+.menu__link.link--active:hover,
+.menu__link.link--active:hover:focus {
     background-color: var(--color-secondary);
     color: var(--on-color);
 }
