@@ -26,6 +26,10 @@ body {
 }
 
 /* Typography General*/
+.menu__link {
+    font-size: 0.8em;
+}
+
 h1 {
     font-family: 'Bangers', cursive;
     font-size: 3.5em;
@@ -40,6 +44,10 @@ h1 {
 }
 
 @media only screen and (min-width: 375px) {
+    .menu__link {
+        font-size: 1em;
+    }
+
     h1 {
         font-size: 4em;
         margin: 0 1rem 0 11rem;
@@ -185,7 +193,13 @@ section {
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
-    text-align: right;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar__menu ul {
+        text-align: right;
+    }
 }
 
 .navbar__menu li {
